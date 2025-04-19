@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "85861640000",
+    "firebase_url": "https://whatsbesnes-default-rtdb.firebaseio.com",
+    "project_id": "whatsbesnes",
+    "storage_bucket": "whatsbesnes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85861640000:android:62c1311c2a2b2b638fbca5",
+        "android_client_info": {
+          "package_name": "com.admen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqO2ySNnWxwuY_6R7RG9R0U-IXP4nXHZA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

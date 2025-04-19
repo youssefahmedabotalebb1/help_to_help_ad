@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>لوحة إدارة محمصه كاجو</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>لوحة إدارة ساعد تتساعد</h1>
+    <nav>
+      <button id="viewProductsBtn" class="active">عرض المنتجات</button>
+      <button id="addProductBtn">إضافة منتج جديد</button>
+      <a href="https://youssefahmedabotalebb1.github.io/TOASTER_KAJO/" target="_blank">عرض المتجر</a>
+    </nav>
+  </header>
+
+  <div id="loginContainer">
+    <div class="login-box">
+      <h2>تسجيل الدخول</h2>
+      <input type="text" id="username" placeholder="اسم المستخدم">
+      <input type="password" id="password" placeholder="كلمة المرور">
+      <button id="loginBtn">دخول</button>
+      <p id="loginError" class="error-message"></p>
+    </div>
+  </div>
+
+  <main id="adminPanel" class="hidden">
+    <!-- قسم عرض المنتجات -->
+    <section id="viewProductsSection">
+      <div class="filter-bar">
+        <input type="text" id="searchProductInput" placeholder="ابحث عن منتج...">
+        <select id="categoryFilter">
+          <option value="all">كل الفئات</option>
+          <option value="moater">معطر</option>
+          <option value="molame">ملمع</option>
+          <option value="monazef"> منظفات</option>
+          <option value="enaya"> عنايه ب البشره</option>
+          <option value="Other">اخري</option>
+        </select>
+      </div>
+      <div id="productsList"></div>
+    </section>
+
+    <!-- قسم إضافة منتج جديد -->
+    <section id="addProductSection" class="hidden">
+      <h2>إضافة منتج جديد</h2>
+      <form id="productForm">
+        <div class="form-group">
+          <label for="productCategory">الفئة:</label>
+          <select id="productCategory" required>
+            <option value="moater">معطر</option>
+            <option value="molame">ملمع</option>
+            <option value="monazef">منظفات </option>
+            <option value="enaya"> عنايه ب البشره</option>
+            <option value="Other">اخري</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="productTitle">عنوان المنتج:</label>
+          <input type="text" id="productTitle" required>
+        </div>
+        <div class="form-group">
+          <label for="productDescription">وصف المنتج:</label>
+          <textarea id="productDescription" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="productPrice">السعر:</label>
+          <input type="number" id="productPrice" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label for="productImage">صورة المنتج:</label>
+          <input type="file" id="productImage" accept="image/*" required>
+          <div id="imagePreview"></div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="saveProductBtn">حفظ المنتج</button>
+          <button type="reset" id="cancelProductBtn">إلغاء</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- قسم تعديل منتج -->
+    <section id="editProductSection" class="hidden">
+      <h2>تعديل منتج</h2>
+      <form id="editProductForm">
+        <input type="hidden" id="editProductId">
+        <input type="hidden" id="editProductPath">
+        <div class="form-group">
+          <label for="editProductTitle">عنوان المنتج:</label>
+          <input type="text" id="editProductTitle" required>
+        </div>
+        <div class="form-group">
+          <label for="editProductDescription">وصف المنتج:</label>
+          <textarea id="editProductDescription" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="editProductPrice">السعر:</label>
+          <input type="number" id="editProductPrice" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label for="editProductImage">صورة المنتج:</label>
+          <input type="file" id="editProductImage" accept="image/*">
+          <div id="editImagePreview">
+            <img id="currentProductImage" src="" alt="الصورة الحالية">
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="updateProductBtn">تحديث المنتج</button>
+          <button type="button" id="cancelEditBtn">إلغاء</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- نافذة تأكيد الحذف -->
+  <div id="deleteConfirmModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>تأكيد الحذف</h3>
+      <p>هل أنت متأكد من حذف هذا المنتج؟</p>
+      <div class="modal-actions">
+        <button id="confirmDeleteBtn">نعم، احذف</button>
+        <button id="cancelDeleteBtn">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
